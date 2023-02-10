@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RatingServiceApplication",
+            "request": "launch",
+            "mainClass": "com.redlabel.rating.RatingServiceApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-HotelServiceApplication<HotelService>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -18,6 +25,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.singh.user.service.userservice.UserserviceApplication",
             "projectName": "userservice",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RatingServiceApplication<RatingService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.redlabel.rating.RatingServiceApplication",
+            "projectName": "RatingService",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
