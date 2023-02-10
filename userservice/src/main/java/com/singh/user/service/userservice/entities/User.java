@@ -1,5 +1,8 @@
 package com.singh.user.service.userservice.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +13,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import javax.persistence.Transient;
 
 @Getter
 @Setter
@@ -20,13 +24,15 @@ import lombok.Setter;
 @Table(name = "micro_users")
 public class User {
     @Id
-    @Column(name="ID")
+    @Column(name = "ID")
     private String userId;
-    @Column(name="NAME",length = 20)
+    @Column(name = "NAME", length = 20)
     private String name;
-    @Column(name="EMAIL")
+    @Column(name = "EMAIL")
     private String email;
-    @Column(name="ABOUT")
+    @Column(name = "ABOUT")
     private String about;
-    
+    @Transient
+    private List<Rating> ratings = new ArrayList<>();
+
 }
