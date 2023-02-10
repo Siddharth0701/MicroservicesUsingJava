@@ -1,0 +1,5 @@
+package com.redlable.user.service.UserService.service.impl;
+
+public class UserService {
+
+}
