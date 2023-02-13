@@ -46,20 +46,6 @@ public class UserController {
 
     }
 
-    // deleteUser
-    @DeleteMapping("{userId}")
-    public ResponseEntity<Boolean> deleteUser( @PathVariable String userId){
-        boolean deleteUserById = userserviceImpl.deleteUserById(userId);
-        return ResponseEntity.ok(deleteUserById);
-        
-    }
-
-    // updateUser
-    @PutMapping("{userId}")
-    public ResponseEntity <User> updateUser(@RequestBody User user, @PathVariable String userId ){
-        User updatUser = userserviceImpl.updatUser(user, userId);
-        return ResponseEntity.ok(updatUser);
-
-    }
+    
 
 }
