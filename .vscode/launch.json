@@ -48,6 +48,16 @@
             "projectName": "ServiceRegistery",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserServicesApplication<UserServices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.redlabel.user.service.UserServicesApplication",
+            "projectName": "UserServices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
