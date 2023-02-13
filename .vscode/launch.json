@@ -26,7 +26,8 @@
             "mainClass": "com.singh.user.service.userservice.UserserviceApplication",
             "projectName": "userservice",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50524 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=userservice"
         },
         {
             "type": "java",
@@ -35,6 +36,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.redlabel.rating.RatingServiceApplication",
             "projectName": "RatingService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServiceRegisteryApplication<ServiceRegistery>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.redlabel.service.registry.ServiceRegisteryApplication",
+            "projectName": "ServiceRegistery",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
