@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ConfigServerApplication",
+            "request": "launch",
+            "mainClass": "com.redlabel.config.server.ConfigServerApplication"
+        },
+        {
+            "type": "java",
             "name": "Launch RatingServiceApplication",
             "request": "launch",
             "mainClass": "com.redlabel.rating.RatingServiceApplication",
@@ -37,7 +43,8 @@
             "mainClass": "com.redlabel.rating.RatingServiceApplication",
             "projectName": "RatingService",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=62003 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=RatingService"
         },
         {
             "type": "java",
@@ -47,7 +54,8 @@
             "mainClass": "com.redlabel.service.registry.ServiceRegisteryApplication",
             "projectName": "ServiceRegistery",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61924 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=ServiceRegistery"
         },
         {
             "type": "java",
@@ -57,7 +65,8 @@
             "mainClass": "com.redlabel.user.service.UserServicesApplication",
             "projectName": "UserServices",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61982 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=UserServices"
         },
         {
             "type": "java",
@@ -66,6 +75,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.redlabel.getwway.ApiGatewayApplication",
             "projectName": "ApiGateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ConfigServerApplication<ConfigServer>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.redlabel.config.server.ConfigServerApplication",
+            "projectName": "ConfigServer",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
