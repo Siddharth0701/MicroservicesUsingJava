@@ -1,8 +1,10 @@
 package com.redlabel.user.service.entities;
 
+import lombok.Builder;
 import lombok.ToString;
 
 @ToString
+@Builder
 public class Rating {
     private String ratingId;
     private String userId;
