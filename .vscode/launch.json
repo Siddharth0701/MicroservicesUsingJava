@@ -58,6 +58,16 @@
             "projectName": "UserServices",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<ApiGateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.redlabel.getwway.ApiGatewayApplication",
+            "projectName": "ApiGateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
