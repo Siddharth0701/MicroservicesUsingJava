@@ -2,6 +2,8 @@ package com.redlabel.user.service.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.redlabel.user.service.entities.User;
 import com.redlabel.user.service.services.impl.UserServiceImpl;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @RestController
 @RequestMapping("api/users")
 public class UserController {
     @Autowired
     private UserServiceImpl userserviceImpl;
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     // create
     @PostMapping
@@ -37,10 +42,20 @@ public class UserController {
     }
 
     @GetMapping("{userId}")
+    @CircuitBreaker(name = "ratingHoterBreaker", fallbackMethod = "ratingHotelFallback")
     // getSingleUser
     public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
+        logger.info("Get Single User Handler: UserController");
         User user = userserviceImpl.getUser(userId);
         return ResponseEntity.ok(user);
+
+    }
+    //created fall back method for circuit braker
+    public ResponseEntity<User> ratingHotelFallback( String userId, Exception ex ){
+        logger.info("Fallback is executed because service is down : ", ex.getMessage());
+        User user = User.builder().email("dummy@gmail.com").name("Dummy").about("This user is created dummy because some service is down").userId("141234").build();
+        return new ResponseEntity<>(user,HttpStatus.OK);
+
 
     }
 
