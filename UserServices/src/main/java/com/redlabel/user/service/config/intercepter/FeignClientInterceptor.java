@@ -13,11 +13,12 @@ import feign.RequestTemplate;
 public class FeignClientInterceptor implements RequestInterceptor {
 
     private OAuth2AuthorizedClientManager manager;
-   
 
     @Override
     public void apply(RequestTemplate template) {
-        String token = manager.authorize(OAuth2AuthorizeRequest.withClientRegistrationId("my-internal-client").principal("internal").build()).getAccessToken().getTokenValue();
+        String token = manager.authorize(
+                OAuth2AuthorizeRequest.withClientRegistrationId("my-internal-client").principal("internal").build())
+                .getAccessToken().getTokenValue();
         template.header("Authorization", "Bearer" + token);
 
     }
