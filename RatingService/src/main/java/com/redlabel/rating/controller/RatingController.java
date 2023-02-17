@@ -8,6 +8,7 @@ import com.redlabel.rating.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ public class RatingController {
 	@Autowired
 	private RatingService ratingService;
 
+	@PreAuthorize("hasAuthority('Admin')")
 	@PostMapping
 	// create rating
 	public ResponseEntity<Rating> create(@RequestBody Rating rating) {
@@ -28,6 +30,7 @@ public class RatingController {
 
 	}
 
+	@PreAuthorize("hasAuthority('SCOPE_internal') || hasAuthority('Admin')")
 	@GetMapping
 	// get all
 	public ResponseEntity<List<Rating>> getRatings() {
