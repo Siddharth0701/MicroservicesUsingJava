@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch UserServiceApplication",
+            "request": "launch",
+            "mainClass": "com.lcwd.user.service.UserServiceApplication"
+        },
+        {
+            "type": "java",
             "name": "Launch ConfigServerApplication",
             "request": "launch",
             "mainClass": "com.redlabel.config.server.ConfigServerApplication"
